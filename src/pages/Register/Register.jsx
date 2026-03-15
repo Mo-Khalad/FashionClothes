@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Inputs from "../Ui/Inputs.jsx";
-import Button from "../Ui/Button.jsx";
+import Inputs from "../../Component/Ui/Inputs.jsx";
+import Button from "../../Component/Ui/Button.jsx";
 import { useValidation } from "../../Hook/useValidation.js";
 import { useHttp } from "../../Hook/usehttp.js";
 import { DisplayContext } from "../../Store/DisplayContext.js";
@@ -12,8 +12,6 @@ const Register = ({
   ageRegex,
   rePasswordRegex,
 }) => {
-  console.log("re");
-
   const [errorMessage, setErrorMessage] = useState(false);
   const DisplayCrx = useContext(DisplayContext);
   const [rePasswordError, setRePasswordError] = useState(false);
@@ -49,9 +47,9 @@ const Register = ({
     if (data?.message === "success") {
       navigate("./../login");
     }
-  }, [data , navigate]);
+  }, [data, navigate]);
 
-  const handleChange = (value, event) => {    
+  const handleChange = (value, event) => {
     setErrorMessage(false);
     signInObject.handleChange(value, event);
   };
@@ -63,7 +61,6 @@ const Register = ({
 
     if (email && password && phone && name && rePassword) {
       sendRequest(customerData);
-    } else {
       DisplayCrx.showError();
       setErrorMessage(true);
     }

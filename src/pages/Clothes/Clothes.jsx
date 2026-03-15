@@ -19,6 +19,8 @@ const Clothes = () => {
   const handleClickDetails = (product) => {
     navigate(`/clothes/product/${product.id}`);
   };
+  
+console.log(data);
 
   return (
     <>

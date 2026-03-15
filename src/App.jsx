@@ -9,7 +9,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import CheckOut from "./Component/CheckOut/CheckOut.jsx";
 import DetailsProducts from "./pages/DetailsProduct/DetailsProducts.jsx";
 import Login from "./Component/Login/Login.jsx";
-import Register from "./Component/Register/Register.jsx";
+import Register from "./pages/Register/Register.jsx";
 import ProtectedRoute from "./Component/ProtectedRoute";
 import Layout from "./Component/Layout";
 import { TokenContext } from "./Store/TokenContext.js";

@@ -7,7 +7,7 @@ import { DisplayContext } from "../../Store/DisplayContext.js";
 import { TokenContext } from "../../Store/TokenContext.js";
 import { CartContext } from "../../Store/CartContext.js";
 
-function SiteNavbar() {
+function Header() {
   const DisplayCrx = useContext(DisplayContext);
   const { item } = useContext(CartContext);
   const cartCount = item.reduce((sum, i) => sum + i.quantity, 0);
@@ -19,13 +19,17 @@ function SiteNavbar() {
     setToken(JSON.parse(localStorage.getItem("token")));
     DisplayCrx.hideError();
   };
+  console.log("nav");
 
   return (
-
-    <Navbar expand="lg" className={token === null ? 'bg-sub-color' : 'bg-after-login'} variant="light">
+    <Navbar
+      expand="lg"
+      className={token === null ? "bg-sub-color" : "bg-after-login"}
+      variant="light"
+    >
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-        Fashion Clothes
+          Fashion Clothes
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="main-navbar" />
@@ -36,13 +40,13 @@ function SiteNavbar() {
                 <Nav.Link as={NavLink} end to="/">
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/clothes">
+                <Nav.Link as={NavLink} end to="/clothes">
                   Clothes
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/about">
+                <Nav.Link as={NavLink} end to="/about">
                   About
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/contact">
+                <Nav.Link as={NavLink} end to="/contact">
                   Contact
                 </Nav.Link>
               </>
@@ -51,16 +55,24 @@ function SiteNavbar() {
           <Nav className="ms-auto">
             {token === null ? (
               <>
-                <NavLink end to="/login" className="text-center nav-btns px-4 py-1 border-0">
-                     Login
-                </NavLink>
-                <NavLink end to="/register" className="nav-btns px-4 py-1 text-center border-0">
-                     Register                 
-                </NavLink>
+                <Nav.Link as={NavLink}
+                  end
+                  to="/login"
+                  className="text-center nav-btns px-4 py-1 border-0"
+                >
+                  Login
+                </Nav.Link>
+                <Nav.Link as={NavLink}
+                  end
+                  to="/register"
+                  className="nav-btns px-4 py-1 text-center border-0"
+                >
+                  Register
+                </Nav.Link>
               </>
             ) : (
               <>
-                <Nav.Link
+                <Nav.Link 
                   onClick={handleClickOnBtnLogOut}
                   as={NavLink}
                   end
@@ -93,4 +105,4 @@ function SiteNavbar() {
   );
 }
 
-export default SiteNavbar;
+export default Header;

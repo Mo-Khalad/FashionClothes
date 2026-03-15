@@ -1,9 +1,0 @@
-.btnClickedStyle{
-  background-color:aliceblue;
-  transition: all 0.5s;
-  margin-right: 1.5rem;
-}
-.navLinks{
-  position: fixed;
-  z-index: 9999999;
-}
