@@ -8,9 +8,11 @@ import { Contact } from "./pages/Contact/Contact.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import CheckOut from "./Component/CheckOut/CheckOut.jsx";
 import DetailsProducts from "./pages/DetailsProduct/DetailsProducts.jsx";
-import Login from "./Component/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
+import Login from "./pages/Login/Login.jsx";
 import ProtectedRoute from "./Component/ProtectedRoute";
+import PublicRoute from "./Component/PublicRoute";
+
 import Layout from "./Component/Layout";
 import { TokenContext } from "./Store/TokenContext.js";
 import { CartContext } from "./Store/CartContext.js";
@@ -45,11 +47,11 @@ useEffect(()=>{
         { path:"/clothes" , element: <ProtectedRoute> <Clothes /> </ProtectedRoute>},
         { path: "/clothes/product/:id", element: <ProtectedRoute> <DetailsProducts /> </ProtectedRoute>},
         { path: "/about", element: <ProtectedRoute> <About /> </ProtectedRoute>},
-        { path: "/login", element: <ProtectedRoute> <Login 
+        { path: "/login", element: <PublicRoute> <Login 
           passwordRegex={passwordRegex}
           emailRegex={emailRegex}/> 
-          </ProtectedRoute>},
-        { path: "/register" , element:<ProtectedRoute>
+          </PublicRoute>},
+        { path: "/register" , element:<PublicRoute>
           <Register 
           nameRegex={nameRegex}
           passwordRegex={passwordRegex}
@@ -57,13 +59,13 @@ useEffect(()=>{
           emailRegex={emailRegex}
           ageRegex={ageRegex}
           />
-          </ProtectedRoute> },
-        { path: "/contact", element: <ProtectedRoute> <Contact />   </ProtectedRoute>},
+          </PublicRoute> },
+        { path: "/contact", element: <ProtectedRoute> <Contact /> </ProtectedRoute>},
     ]}])
   return (
     <>
         <RouterProvider router={router} />
-        <Cart/>
+          <Cart/>
         <CheckOut/>
     </>
   );

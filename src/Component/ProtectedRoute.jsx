@@ -2,34 +2,15 @@ import React, { useContext } from "react";
 import { TokenContext } from "../Store/TokenContext";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({children}) => {
+const ProtectedRoute = ({ children }) => {
   const { token } = useContext(TokenContext);
-  
-  if (token !== null ) {
-    if (children[1]?.type?.name === "Login" || children?.type?.name === "Register" ) {
-      return <Navigate to="../"/>
-    }
-    else return children 
+
+  console.log(children);
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
   }
-  
-   else if (token === null ){    
-    if(children?.type?.name === "Register" ){ 
-      return <>
-       <Navigate to= "../register"/> 
-   {children} 
-   </>
-    }
-  
-    else{
-      return <>
-       <Navigate to= "../login"/> 
-       {children}
-      </>
-    }
-     
-   
-    }
-  
-  }
+  return children;
+};
 
 export default ProtectedRoute;

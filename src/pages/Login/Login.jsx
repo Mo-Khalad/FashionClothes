@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Inputs from "../Ui/Inputs.jsx";
-import Button from "../Ui/Button.jsx";
+import Inputs from "../../Component/Ui/Inputs.jsx";
+import Button from "../../Component/Ui/Button.jsx";
 import { useValidation } from "../../Hook/useValidation.js";
 import { useHttp } from "../../Hook/usehttp.js";
 import { DisplayContext } from "../../Store/DisplayContext.js";
@@ -25,7 +25,6 @@ const Login = ({ emailRegex, passwordRegex }) => {
     "https://ecommerce.routemisr.com/api/v1/auth/signin",
     "post"
   );
-
 
 useEffect(()=>{
   if (data?.message === "success") {      
