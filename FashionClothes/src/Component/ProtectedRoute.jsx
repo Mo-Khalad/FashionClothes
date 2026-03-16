@@ -4,6 +4,8 @@ import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({children}) => {
   const { token } = useContext(TokenContext);
+
+//console.log(children[1].type.name);
   
   if (token !== null ) {
     if (children[1]?.type?.name === "Login" || children?.type?.name === "Register" ) {
@@ -31,5 +33,11 @@ const ProtectedRoute = ({children}) => {
     }
   
   }
+ /* else{ 
+    if ( children.type.name === "ShowAllOrders" ) 
+      else return children
+     } return children
+  */ 
+
 
 export default ProtectedRoute;

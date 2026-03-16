@@ -1,13 +1,13 @@
 import axios from "axios"
 import { useCallback , useEffect, useState } from "react"
-export const sendHttpRequest= async (url , config , method='' )=>{
+export const sendHttpRequest= async (url , config , method )=>{
     let response ='';
 
 if(config === 'Get'){
     response = await axios(url , method)
 } 
 
-else if(config === 'post' && method !== ''){  
+else if(config === 'post'){  
     response=await axios.post(url , method) 
 }
 else if(!response.ok){

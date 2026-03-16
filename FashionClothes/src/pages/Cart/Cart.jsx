@@ -16,12 +16,12 @@ const Cart = () => {
   
   return (
     <Modal className="cart" open={DisplayCrx.modalShow === "cart"}>
-      <h4 className="mb-5 mt-5 fs-4 text-center sub-color">Your Cart</h4>
+      <h4 className="mb-5 fs-4 text-center sub-color">Your Cart</h4>
       <ul>
       {item.length === 0 ? (
             ""
           ) : (
-            <li className="fs-4 sub-color fw-bolder total-price position-absolute mt-5">
+            <li className="fs-4 sub-color fw-bolder total-price position-absolute top-0 mt-5">
               total Price : {totalPriceProducts(item)} $
             </li>
           )}
@@ -32,18 +32,18 @@ const Cart = () => {
             item.map((product) => (
             <div
               key={product.id}
-              className="d-flex justify-content-between mt-2"
+              className=" d-flex justify-content-between mt-2"
             >
-              <ul className="d-flex">
-                <li className="sub-color paragraph w-75">{product.title}</li>
-                <li className="sub-color">
+              <ul className="cartDataDetails d-flex">
+                <li className="sub-color paragraph w-75 me-1">{product.title}</li>
+                <li className="px-2 sub-color">
                   {currencyFormatter.format(
                     totalPriceProduct(product.price , product.quantity)
                   )}
                 </li>
               </ul>
               <ul>
-                <li className="px-2 sub-color d-flex justify-content-around w-100">
+                <li className="px-2 sub-color d-flex justify-content-around">
                   <button
                     className={`${Style.iconButton} bg-sub rounded-circle
                      border border-0 mx-3`}

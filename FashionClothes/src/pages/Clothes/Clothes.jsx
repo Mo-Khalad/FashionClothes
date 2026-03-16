@@ -12,15 +12,13 @@ const Clothes = () => {
   const { addProduct } = useContext(CartContext);
 
   const { data, isLoading, error } = useHttp(
-    "https://dummyjson.com/products/category/mens-shirts",
+    "https://fakestoreapi.com/products",
     "Get",
-    [],
+    []
   );
   const handleClickDetails = (product) => {
     navigate(`/clothes/product/${product.id}`);
   };
-
-  console.log(data);
 
   return (
     <>
@@ -32,14 +30,14 @@ const Clothes = () => {
         <>
           {error === undefined ? (
             <div className={`d-flex flex-wrap justify-content-center`}>
-              {data?.products?.length !== 0 &&
-                data?.products?.map((product) => (
+              {data.length !== 0 &&
+                data.map((product) => (
                   <div
                     className={`${Style.products} rounded-1 ps-2`}
                     key={product.id}
                   >
                     <img
-                      src={product.images[0]}
+                      src={product.image}
                       alt={product.title}
                       height={300}
                       className={`${Style.imageProduct} w-100 p-4`}

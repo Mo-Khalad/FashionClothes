@@ -11,16 +11,14 @@ const DetailsProducts = () => {
   const navigate = useNavigate();
   const { addProduct } = useContext(CartContext);
   const { data: product, isLoading, error } = useHttp(
-    `https://dummyjson.com/products/${id || ""}`,
+    `https://fakestoreapi.com/products/${id || ""}`,
     "Get",
     null
   );
 
-console.log(product)
-
   if (!id) {
     return (
-      <div className="container py-5 text-center w-100 h-100 bg-dark">
+      <div className="container py-5 text-center">
         <p>Product not found.</p>
         <Button className="bg-main text-white" onClick={() => navigate("/clothes")}>
           Back to Clothes
@@ -52,18 +50,20 @@ console.log(product)
 
   return (
     <div className="container pt-5 pb-5">
-      <Button className="bg-main text-white mt-5 mb-3" onClick={() => navigate("/clothes")}>
+      <Button className="bg-main text-white mb-3" onClick={() => navigate("/clothes")}>
         ← Back to Clothes
       </Button>
       <div className="d-flex flex-wrap justify-content-around align-items-start">
         <div className="mt-3">
           <img
-            src={product.images[0]}
+            src={product.image}
             alt={product.title}
-            className="rounded w-100"
+            width={500}
+            height={500}
+            className="rounded"
           />
         </div>
-        <div className="mt-5" style={{ maxwidth: "60%" }}>
+        <div className="mt-5" style={{ maxWidth: "50%" }}>
           <h2 className="main-color">{product.category}</h2>
           <h5 className="fs-6 main-color">{product.title}</h5>
           <p className="mt-3">{product.description}</p>

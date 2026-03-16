@@ -1,0 +1,203 @@
+.slider1 ,.slider2{
+    width: 100% !important;
+    height: 100vh !important;
+    position: relative !important;
+    background-image: url(../../images/slider1.webp);
+    background-size: cover;
+}
+.slider2{
+    background-image: url(../../images/slider2.webp);
+}
+.span{
+    color:var(--main-color)
+}
+.shopNow_btn{
+    display: inline-block;
+    font-weight: 700;
+    color: #ffffff;
+    border: 0;
+    background: var(--main-color);
+    width:150px;
+}
+.h1{
+    font-size: 50px;
+}
+.men ,.women ,.kids{
+    background-image: url(../../images/Men’s.webp);
+    background-size: cover;
+    height: 215px;
+    position: relative;
+}
+.men h4 ,.women h4 ,.kids h4 {
+    color: #252525;
+    font-weight: 700;
+    padding: 11px 28px;
+    background: #ffffff;
+    border-radius: 2px;
+    width: 150px;
+    position: absolute;
+    z-index: 99999;
+}
+.men span ,.women span ,.kids span{
+    position: absolute;
+    transition: all 1s;
+    height: 40px;
+    width: 150px;
+    border:5px solid  #ffffffad;
+    border-bottom: 3px solid #ffffffad;
+    border-top: 3px solid #ffffffad;
+    background-color: transparent;
+}
+.women{
+    background-image: url(../../images/Women’s.webp);
+}
+.kids{
+    background-image: url(../../images/Kid’s.webp);
+}
+.cover_count_down{
+    background-image: url(../../images/cover_count_down.jpg);
+    background-size: 125% 120%;
+    min-height:550px;
+}
+.men:hover span ,.women:hover span ,.kids:hover span{
+    transform:scale( 2 , 3.7);
+}
+.women:hover span {
+    transform:scale( 2 , 3.7);
+}
+.days ,.seconds ,.minutes ,.hours{
+	background: #ffffff;
+	margin-right:15px;
+	padding: 10px 14px;
+	border-radius: 5px;
+}
+.days span ,.seconds span ,.minutes span ,.hours span{
+    color: var(--main-color);
+	font-weight: 700;
+	line-height: 40px;
+	font-size: 36px;
+}
+.days p ,.seconds p ,.minutes p ,.hours p{
+    font-size: 16px;
+	color: #b2b2b2;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+.line{
+    background-color: var(--main-color);
+    width: 100px;
+    height: 3px;
+}
+.price{
+    font-size: 16px;
+    font-weight: 400;
+    color: #636363;
+}
+.price span{
+    color: var(--main-color) !important ;
+    font-size: 24px;
+    font-weight: 700;
+}
+.paragraph{
+    font-size: 16px;
+    font-family: "Muli", sans-serif;
+    color: #636363;
+    font-weight: 400;
+    line-height: 26px;
+    margin: 0 0 15px 0;
+}
+.Show_Now_Btn{
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color:var(--main-color);
+    text-transform: uppercase;
+    border: 0;
+}
+.SwiperSlide img{
+    height:275px !important;
+    cursor:pointer
+}
+.SwiperSlide h3{
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.5;
+}
+.mens{
+    background-color:#222;
+    background-image: url(../../images/man.webp);
+    background-size:cover;
+    width:50%;
+    height:600px;
+}
+.SwiperSlide{
+    background-color:#fcfcfc;
+    border-radius: 2px;
+    min-height:360px ;
+    box-shadow:1px 1px 0.7px 0.5px #c4c4c4;
+    border-bottom:0.7px solid #c4c4c4 ;
+    overflow: hidden;
+}
+.SwiperSlide span{
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #555555;
+    text-transform: uppercase;
+}
+.Featured_Products_text{
+    color:var(--main-color)
+}
+.calendar{
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    color:var(--main-color);
+}
+.calendar_text{
+    color: #a2a1a1;
+    font-size:16px;
+}
+.blog .Blog_img{
+    width:100%;
+    height:250px;
+    overflow:hidden
+}
+.blog img{
+    cursor:pointer;
+    transition:all 1s;
+}
+.blog img:hover{
+    transform:scale( 1.1 , 1.1);
+}
+.blog p{
+    font-size: 16px;
+    font-family: "Muli", sans-serif;
+    color: #636363;
+    font-weight: 400;
+    line-height: 26px;
+    margin: 0 0 15px 0;
+}
+.order{
+    border: 1px solid #ebebeb;
+    margin-top: 45px;
+}
+.free_Shipping{
+    border-right: 1px solid #F3F4F0;
+}
+.order h6{
+    font-size:16px
+}
+.order p{
+    margin-bottom: 0;
+    color: #252525;
+    line-height: 16px;
+}
+.Brands{
+    background: #303030;
+}
+.Brands img{
+    height:30px
+}
