@@ -28,5 +28,7 @@
 .texts{
   height: 100vh;
 }
-
+.error-404{
+  height: 80vh;
+}
 

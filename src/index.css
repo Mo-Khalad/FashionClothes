@@ -101,6 +101,7 @@ button{
   position: relative;
   z-index: 999999;
   margin:1rem;
+  margin-top:50px
 }
 .text-login{    
   font-family:'Times New Roman', Times, serif;
@@ -145,10 +146,20 @@ button{
   width:47rem;
   outline-style: none !important;
   min-width: 5rem;
-  height: 17rem;
+  height: 20rem;
   border-radius: 0.4rem;
   overflow-y: auto;
   padding: 5px;
+}
+.cart_Ul{
+  height:125px;
+  overflow-y:auto
+}
+.cart-items-btns{
+  width:200px !important
+}
+.cart-items{
+  width:300px
 }
 .check-out{
   width: 40rem;
@@ -176,6 +187,8 @@ button{
 }
 .nav-btns{
   background-color:var(--sub-color) !important;
+  background-color:rgba(226, 225, 225, 0.99) !important;
+
   width:115px !important;
   color:var(--main-color) !important;
   text-decoration: none !important;
@@ -193,6 +206,17 @@ button{
 .nav-btns{
   margin-top:10px !important;
   margin:5px !important
+}
+.details_product ,.clothes{
+  min-height:100vh ;
+}
+@media (max-width: 568px) {
+  .cart-items{
+    width:125px !important;
+  }
+  .cart-items-btns{
+    width:150px;
+  }
 }
 
 

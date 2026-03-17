@@ -69,7 +69,7 @@ const Register = ({
   return (
     <>
       <div
-        className={`coverLoginAndRegister d-flex flex-wrap w-100 justify-content-around align-items-center  `}
+        className={`coverLoginAndRegister d-flex flex-wrap w-100 justify-content-around align-items-center`}
       >
         <div className="cover"></div>
 
@@ -147,17 +147,27 @@ const Register = ({
             handleBlue={() => signInObject.handleBlue("rePassword")}
             errorSign={signInObject.errorSign.rePassword}
             rePasswordError={rePasswordError}
-            error={"Passwords do not match"}
+            error={ rePassword ? "Passwords do not match" :
+              "It must be at least 4 characters long and begin with a capital letter"
+            }
             Regex={rePasswordRegex}
           />
           <Button className="sub-color bg-main px-5">register</Button>
+          { error?.message === "fail" ? 
           <h2
-            className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"} `}
+            className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
           >
-            {" "}
-            {error?.message !== "fail" && error?.message}
-          </h2>
+             {error?.message} 
+          </h2> : 
+          <h2
+          className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
+        >
+           please try again later
+        </h2> 
+        }
+
         </form>
+
       </div>
     </>
   );

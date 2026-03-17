@@ -5,7 +5,6 @@ className, id , value , error , rePasswordError})=>{
 const DisplayCrx=useContext(DisplayContext)
 //console.log('componet input');
 
-
 return (
     <>
      <input

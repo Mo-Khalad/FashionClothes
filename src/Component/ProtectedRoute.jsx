@@ -4,7 +4,6 @@ import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useContext(TokenContext);
-
   console.log(children);
 
   if (!token) {

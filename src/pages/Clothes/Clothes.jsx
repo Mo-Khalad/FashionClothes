@@ -4,15 +4,16 @@ import Style from "./Clothes.module.css";
 import { CartContext } from "../../Store/CartContext.js";
 import Button from "../../Component/Ui/Button.jsx";
 import { useHttp } from "../../Hook/usehttp.js";
-import Error from "../../Component/Error/Error.jsx";
 import { currencyFormatter } from "../../Logic/logic.js";
+import { Loading } from '../../Component/Loading/Loading.jsx'
+import { NotFound } from "../../Component/Error/NotFound.jsx";
 
 const Clothes = () => {
   const navigate = useNavigate();
   const { addProduct } = useContext(CartContext);
 
   const { data, isLoading, error } = useHttp(
-    "https://dummyjson.com/products/category/mens-shirts",
+    "https://dummyjson.com/products/category/mens-shirts550",
     "Get",
     [],
   );
@@ -20,18 +21,16 @@ const Clothes = () => {
     navigate(`/clothes/product/${product.id}`);
   };
 
-  console.log(data);
+  let content = ''
 
-  return (
-    <>
-      {isLoading ? (
-        <div className="d-flex justify-content-center align-items-center min-vh-100 bg-main text-white">
-          Loading...
-        </div>
-      ) : (
-        <>
-          {error === undefined ? (
-            <div className={`d-flex flex-wrap justify-content-center`}>
+if(isLoading){
+  content = <Loading/>
+}
+else if (error || error === undefined){
+ content =  <NotFound errorMessage='Products Not Found' message='products'/>
+}
+else {
+ content = <div className={`d-flex flex-wrap justify-content-center`}>
               {data?.products?.length !== 0 &&
                 data?.products?.map((product) => (
                   <div
@@ -62,12 +61,7 @@ const Clothes = () => {
                   </div>
                 ))}
             </div>
-          ) : (
-            <Error error={error} />
-          )}
-        </>
-      )}
-    </>
-  );
+}
+  return ( content );
 };
 export default Clothes;

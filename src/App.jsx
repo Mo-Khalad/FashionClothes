@@ -12,6 +12,7 @@ import Register from "./pages/Register/Register.jsx";
 import Login from "./pages/Login/Login.jsx";
 import ProtectedRoute from "./Component/ProtectedRoute";
 import PublicRoute from "./Component/PublicRoute";
+import { NotFound } from "./Component/Error/NotFound";
 
 import Layout from "./Component/Layout";
 import { TokenContext } from "./Store/TokenContext.js";
@@ -27,11 +28,9 @@ const App = () => {
   const TokenContextCrx = useContext(TokenContext);
   const {item} = useContext(CartContext);
 
-
  if(item.length !== 0){
    localStorage.setItem("items", JSON.stringify(item));
  }else localStorage.setItem("items", JSON.stringify([]));
-
 
 useEffect(()=>{
   TokenContextCrx.setToken(JSON.parse(localStorage.getItem("token")))
@@ -41,7 +40,7 @@ useEffect(()=>{
     {
       path: "",
       element: <Layout />,
-  //    errorElement: <NotFound />,
+      errorElement: <NotFound message='page' errorMessage=' Not Found 404 '/>,
       children: [
         { path: "/", element: <ProtectedRoute> <Home /> </ProtectedRoute>},
         { path:"/clothes" , element: <ProtectedRoute> <Clothes /> </ProtectedRoute>},

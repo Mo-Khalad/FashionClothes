@@ -173,7 +173,13 @@ return (
             >
               Create a new account
             </h5>
-            <h6>{error && error?.errors?.msg === 'Email is required'  ? '' : error?.message}</h6>
+            <h2
+            className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"} `}
+          >
+            {" "}
+            {error?.message !== "fail" && error?.message}
+          </h2>
+
           </form>
           
          </div>
