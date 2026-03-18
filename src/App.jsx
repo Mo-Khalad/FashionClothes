@@ -24,7 +24,6 @@ const App = () => {
   const ageRegex = /^[0-9]{11}/;
   const passwordRegex = /^[A-Z0-9a-z]{4}/;
   const rePasswordRegex = /^[A-Z0-9a-z]{4}/;    
-    
   const TokenContextCrx = useContext(TokenContext);
   const {item} = useContext(CartContext);
 

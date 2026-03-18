@@ -153,6 +153,15 @@ const Register = ({
             Regex={rePasswordRegex}
           />
           <Button className="sub-color bg-main px-5">register</Button>
+          <h5
+              onClick={() => {
+                navigate('./../login')
+                DisplayCrx.hideError();
+              }}
+              className="main-color fs-6 w-100 text-center cursor"
+            >
+             I already have an account
+            </h5>
           { error?.message === "fail" ? 
           <h2
             className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
@@ -165,7 +174,6 @@ const Register = ({
            please try again later
         </h2> 
         }
-
         </form>
 
       </div>
