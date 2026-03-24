@@ -11,16 +11,15 @@ import {TokenContextProvider} from './Store/TokenContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-        <TokenContextProvider>
+   <React.StrictMode>
+      <TokenContextProvider>
           <DisplayContextProvider>
             <CartContextProvider>         
                 <App/>
             </CartContextProvider>
           </DisplayContextProvider>   
-        </TokenContextProvider>
-
-          </React.StrictMode>
-          
+      </TokenContextProvider>
+    </React.StrictMode>
 );
 reportWebVitals();
+I modified the clothing page API and reduced the number of renders the login/registration page was displayed.

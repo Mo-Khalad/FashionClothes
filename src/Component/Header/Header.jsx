@@ -17,9 +17,7 @@ function Header() {
     localStorage.removeItem("UserData");
     localStorage.removeItem("token");
     setToken(JSON.parse(localStorage.getItem("token")));
-    DisplayCrx.hideError();
   };
-  console.log("nav");
 
   return (
     <Navbar

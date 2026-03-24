@@ -5,6 +5,15 @@ import { useValidation } from "../../Hook/useValidation.js";
 import { useHttp } from "../../Hook/usehttp.js";
 import { DisplayContext } from "../../Store/DisplayContext.js";
 import { useNavigate } from "react-router-dom";
+
+const formInputs = {
+  name: "",
+  email: "",
+  password: "",
+  rePassword: "",
+  phone: "",
+};
+
 const Register = ({
   nameRegex,
   emailRegex,
@@ -14,17 +23,10 @@ const Register = ({
 }) => {
   const [errorMessage, setErrorMessage] = useState(false);
   const DisplayCrx = useContext(DisplayContext);
-  const [rePasswordError, setRePasswordError] = useState(false);
   const navigate = useNavigate();
-  const formInputs = {
-    name: "",
-    email: "",
-    password: "",
-    rePassword: "",
-    phone: "",
-  };
 
   const { signInObject } = useValidation(formInputs);
+  const { password: pass, rePassword: rePass } = signInObject.dataSign;
 
   const { data, sendRequest, error } = useHttp(
     "https://ecommerce.routemisr.com/api/v1/auth/signup",
@@ -37,17 +39,13 @@ const Register = ({
   const password = passwordRegex.test(signInObject.dataSign.password);
   const rePassword = rePasswordRegex.test(signInObject.dataSign.rePassword);
 
-  useEffect(() => {
-    if (signInObject.dataSign.password !== signInObject.dataSign.rePassword) {
-      setRePasswordError(true);
-    } else setRePasswordError(false);
-  }, [signInObject.dataSign.password, signInObject.dataSign.rePassword]);
+  const rePasswordError =  pass !== rePass;
 
   useEffect(() => {
     if (data?.message === "success") {
-      navigate("./../login");
+      navigate("/login", { replace: true });
     }
-  }, [data, navigate]);
+  }, [data?.message, navigate]);
 
   const handleChange = (value, event) => {
     setErrorMessage(false);
@@ -147,35 +145,36 @@ const Register = ({
             handleBlue={() => signInObject.handleBlue("rePassword")}
             errorSign={signInObject.errorSign.rePassword}
             rePasswordError={rePasswordError}
-            error={ rePassword ? "Passwords do not match" :
-              "It must be at least 4 characters long and begin with a capital letter"
+            error={
+              rePassword
+                ? "Passwords do not match"
+                : "It must be at least 4 characters long and begin with a capital letter"
             }
             Regex={rePasswordRegex}
           />
           <Button className="sub-color bg-main px-5">register</Button>
           <h5
-              onClick={() => {
-                navigate('./../login')
-                DisplayCrx.hideError();
-              }}
-              className="main-color fs-6 w-100 text-center cursor"
-            >
-             I already have an account
-            </h5>
-          { error?.message === "fail" ? 
-          <h2
-            className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
+            onClick={() => {
+              navigate("./../login");
+            }}
+            className="main-color fs-6 w-100 text-center cursor"
           >
-             {error?.message} 
-          </h2> : 
-          <h2
-          className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
-        >
-           please try again later
-        </h2> 
-        }
+            I already have an account
+          </h5>
+          {error?.message === "fail" ? (
+            <h2
+              className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
+            >
+              {error?.message}
+            </h2>
+          ) : (
+            <h2
+              className={`errorLoginAndRegister error-message text-center ${errorMessage ? "opacity-100" : "opacity-0"}`}
+            >
+              please try again later
+            </h2>
+          )}
         </form>
-
       </div>
     </>
   );
